@@ -30,6 +30,16 @@ function TodoProvider(props){
         });
     }
 
+    const addTodo = (text) => {
+        const newTodos = [...todos];
+        newTodos.push({
+            completed: false,
+            text,
+        })
+        saveTodos(newTodos);
+    }
+
+
       //method to complete todo-->this function everytime that it receives a text 
     const completeTodo = (text) => {                                                           
         //examine line by line which ha the same text, so when we find it we get the position
@@ -72,6 +82,7 @@ function TodoProvider(props){
       searchValue,
       setSearchValue,
       searchedTodos,
+      addTodo,
       completeTodo,
       deleteTodo,
       openModal,
